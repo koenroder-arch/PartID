@@ -3,7 +3,7 @@ import { Camera, ImageUp, Wrench, ChevronLeft, Link as LinkIcon, Loader2, Info }
 import { analyzeImage, type PartAnalysis } from './gemini';
 
 function App() {
-  const apiKey = 'AIzaSyCJ7UaOOVEgYauzpX9yXEAe2nSGmnWm5X8';
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY || '';
   
   const [image, setImage] = useState<string | null>(null);
   const [mimeType, setMimeType] = useState<string>('');
