@@ -19,8 +19,8 @@ export async function analyzeImage(
   mimeType: string
 ): Promise<PartAnalysis> {
   const genAI = new GoogleGenerativeAI(apiKey);
-  // Using gemini-2.0-flash as the latest standard model for vision and text tasks
-  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+  // Using gemini-2.5-flash - confirmed working with this API key
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
   const prompt = `Je bent een expert in hardware en bouwmaterialen (zoals schroeven, bouten, pluggen, scharnieren, etc.).
 Analyseer de bijgevoegde afbeelding zorgvuldig.
