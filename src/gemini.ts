@@ -60,7 +60,13 @@ Geef je antwoord UITSLUITEND in het volgende JSON-formaat zonder extra tekst:
     const parsedData: PartAnalysis = JSON.parse(cleanText);
     return parsedData;
   } catch (error) {
-    console.error("Fout tijdens Gemini API Analyse:", error);
+    console.error("Gemini API Error Detail:", error);
+    if (error instanceof Error) {
+      console.error("Error message:", error.message);
+      if (error.message.includes("API_KEY_INVALID")) {
+        throw new Error("Ongeldige API-sleutel. Controleer je .env bestand.");
+      }
+    }
     throw new Error("Kon de afbeelding niet analyseren. Controleer je API sleutel of probeer een duidelijkere foto.");
   }
 }
